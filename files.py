@@ -25,3 +25,41 @@ f = open('data') # это созданная нами доп страница
 for line in f:
     print(line)
 f.close()
+
+print()
+# Менеджер контекста (не нужно закрывать файил, разбивает на логичные блоки)
+print('   Менеджер контекста (не нужно закрывать файил, разбивает на логичные блоки)')
+with open('data') as f:
+    for line in f:
+        print(line)
+
+print()
+#  Запись в фаил, создадим новый
+print('   Запись в фаил, создадим новый')
+
+with open('dana_new', 'w') as f:
+    f.write('This is new file!')
+
+print()
+# Можно писать построчно
+print('   Можно писать построчно')
+
+data = ['1\n', '2 \n', '3 \n']
+with open('dana_new_2', 'w') as f:
+    f.writelines(data) # ??? вообще не понятно зачем здесь writelines, препод. думал, что этот метод записывает по  строчно
+
+
+print()
+# Считывание одной строки
+print('   Считывание одной строки')
+
+with open('data') as f:
+    line = f.readline()
+    print(line)
+
+print()
+# Считывание ПОБАЙТНО
+print('   Считывание ПОБАЙТНО')
+with open('data', 'r') as f:
+    data = f.read(60) # В скобках указываем то, количество файлов которое хотим считать
+    print(data, type(data))
