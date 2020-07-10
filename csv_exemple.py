@@ -30,6 +30,9 @@ with open('example.csv') as f:
     for row in reader:
         print(row)
 
+
+
+
 print()
 # csv.Dictwriter
 print('   csv.Dictwriter')
@@ -45,3 +48,19 @@ with open('example_1.csv', 'w') as f:
     writer.writeheader()
     for i in range (len(data_dict)):
         writer.writerow(data_dict[i])
+
+
+
+print()
+# csv.DictReader
+print('   csv.DictReader')
+
+with open('example_1.csv') as f:
+    reader = csv.DictReader(f, delimiter = '&')
+    for row in reader:
+        print(dict(row))
+
+
+# Для анализа используют Pandas
+
+import pandas as pd
