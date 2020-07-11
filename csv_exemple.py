@@ -15,7 +15,7 @@ print('   csv.writer')
 
 car_data = [['brand', 'price', 'year'],['Volvo', 1.5, 2017],['Lada', 0.5, 2018],['Audi', 2.0, 2018]]
 
-with open('example.csv', 'w') as f:
+with open('example.csv', 'w', newline='') as f:
     writer = csv.writer(f, delimiter = '&') # delimiter = '&'
     writer.writerows(car_data)
 print('Writing complete')
@@ -61,6 +61,14 @@ with open('example_1.csv') as f:
         print(dict(row))
 
 
+
+print()
 # Для анализа используют Pandas
+print('    Для анализа используют Pandas')
 
 import pandas as pd
+
+DataFrame_from_csv = pd.read_csv('example_1.csv', sep = '&')
+print(type(DataFrame_from_csv))
+print(DataFrame_from_csv)
+
